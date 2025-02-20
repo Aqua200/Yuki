@@ -1,6 +1,6 @@
 // Código creado por Destroy wa.me/584120346669
 
-const fs = require('fs'); const path = require('path');
+import fs from 'fs'; import path from 'path';
 
 let handler = async (m, { conn, usedPrefix }) => { if (!global.db.data.chats[m.chat].nsfw && m.isGroup) { return m.reply("🥵 El contenido NSFW está desactivado en este grupo.\n> Un administrador puede activarlo con el comando » #nsfw"); }
 
@@ -45,4 +45,5 @@ if (m.isGroup) {
 
 handler.help = ['follar @tag']; handler.tags = ['nsfw']; handler.command = ['follar']; handler.group = true;
 
-module.exports = handler;
+export default handler;
+
