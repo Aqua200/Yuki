@@ -1,18 +1,25 @@
-const { performance } = require('perf_hooks');
+import { exec } from 'child_process';
+import { performance } from 'perf_hooks';
 
-let handler = async (m, { conn, rcanal, text }) => { let startTime = performance.now();
+let handler = async (m, { conn, rcanal, text }) => {
+let startTime = performance.now();
 
-// ⏱️ Medir la latencia
-let endTime = performance.now();
-let latency = (endTime - startTime).toFixed(4);
+try {  
+    // ⏳ Ejecutar 'neofetch' solo para medir la velocidad, sin mostrar detalles  
+    await execPromise(`neofetch --stdout`, { timeout: 10000 });  
 
-// 🌸 URL personalizada si el usuario la proporciona
-let url = text || "https://qu.ax/wmgKA.jpg"; // Imagen por defecto
+    // ⏱️ Medir la latencia  
+    let endTime = performance.now();  
+    let latency = (endTime - startTime).toFixed(4);  
 
-// 🌸 Respuesta kawaii con nombre de bot y opción de menú
-let response = `
+    // 🌸 URL personalizada si el usuario la proporciona  
+    let url = text || "https://qu.ax/wmgKA.jpg"; // Imagen por defecto  
 
-┏━━━✦ ❀ ✦━━━┓ ┃  💕 A-aquí tienes...
+    // 🌸 Respuesta kawaii con nombre de bot y opción de menú  
+    let response = `
+
+┏━━━✦ ❀ ✦━━━┓
+┃  💕 A-aquí tienes...
 ┃  📡 Velocidad: ${latency} ms...
 *┃  💖 Soy 🦋𝐀𝐧𝐢𝐤𝐚-𝐒𝐭𝐞𝐥𝐥𝐚✨..
 ┃  ✨ Quieres ver mi menú? Usa .menu
@@ -20,10 +27,41 @@ let response = `
 ﹕E-espero que esté bien... (>///<)
 `;
 
-await conn.sendFile(m.chat, url, "latency.jpg", response, m, rcanal);
+await conn.sendFile(m.chat, url, "latency.jpg", response, m, rcanal);  
+} catch (error) {  
+    console.error(`Error ejecutando neofetch: ${error.message}`);  
+
+    if (error.message.includes("timed out")) {  
+        conn.reply(m.chat, `﹕⏳ U-uhm... t-tardó demasiado... l-lo siento... (///∇//)`, m, rcanal);  
+    } else {  
+        conn.reply(m.chat, `﹕💔 O-oh... hubo un error... (*///∇///*)`, m, rcanal);  
+    }  
+}
 
 };
 
-handler.help = ['ping']; handler.tags = ['info']; handler.command = ['ping']; handler.register = true;
+// 🌸 Función para ejecutar comandos con promesas
+function execPromise(command, { timeout } = {}) {
+return new Promise((resolve, reject) => {
+const process = exec(command, (error, stdout, stderr) => {
+if (error) return reject(new Error(stderr || error.message));
+resolve({ stdout, stderr });
+});
 
-module.exports = handler;
+if (timeout) {  
+        setTimeout(() => {  
+            process.kill();  
+            reject(new Error("timed out"));  
+        }, timeout);  
+    }  
+});
+
+}
+
+handler.help = ['ping'];
+handler.tags = ['info'];
+handler.command = ['ping'];
+handler.register = true;
+
+export default handler;
+
