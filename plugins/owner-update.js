@@ -1,7 +1,7 @@
 import { exec } from 'child_process';
 
 let handler = async (m, { conn }) => {
-  m.reply(`${emoji2} Actualizando el bot...`);
+  m.reply(`✨🌸 Actualizando a la versión más reciente... ¡Espera un momento! 🌸✨`);
 
   exec('git pull', (err, stdout, stderr) => {
     if (err) {
