@@ -13,7 +13,7 @@ let handler = async (m, { conn, args }) => {
     txt += `✩  *Visitas* : ${json.watchers_count}\n`
     txt += `✩  *Peso* : ${(json.size / 1024).toFixed(2)} MB\n`
     txt += `✩  *Actualizado* : ${moment(json.updated_at).format('DD/MM/YY - HH:mm:ss')}\n`
-    txt += `✩  *Url* : Enlace del repositorio\n`  // Enlace oculto
+    txt += `✩  *Url* : Por el momento no hay💔\n`  // Enlace oculto
     txt += `✩  *Forks* : ${json.forks_count}\n`
     txt += `✩  *Stars* : ${json.stargazers_count}\n\n`
     txt += `> *${dev}*`
