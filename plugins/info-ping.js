@@ -24,7 +24,7 @@ try {
 *┃  💖 Soy 🦋𝐀𝐧𝐢𝐤𝐚-𝐒𝐭𝐞𝐥𝐥𝐚✨..
 ┃  ✨ Quieres ver mi menú? Usa .menu
 ┗━━━✦ ❀ ✦━━━┛
-﹕E-espero que esté bien... (>///<)
+E-espero que esté bien... (>///<)
 `;
 
 await conn.sendFile(m.chat, url, "latency.jpg", response, m, rcanal);  
