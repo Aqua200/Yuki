@@ -37,7 +37,7 @@ break
 case isCommand2:
 if (global.conn.user.jid == conn.user.jid) conn.reply(m.chat, `☁️ Si no es *SubBot* comuníquese al numero principal del *Bot* para ser *SubBot*`, m, rcanal, )
 else {
-await conn.reply(m.chat, `🐉 Kakaroto-bot desactivado.`, m)
+await conn.reply(m.chat, `ᥫ᭡ 🦋𝐀𝐧𝐢𝐤𝐚-𝐒𝐭𝐞𝐥𝐥𝐚✨ desactivado.`, m)
 conn.ws.close()}  
 break
 
@@ -70,7 +70,7 @@ return resultado;
 const message = users.map((v, index) => `• 「 ${index + 1} 」\n📎 Wa.me/${v.user.jid.replace(/[^0-9]/g, '')}?text=${usedPrefix}serbot%20--code\n👤 Usuario: ${v.user.name || 'Sub-Bot'}\n🕑 Online: ${ v.uptime ? convertirMsADiasHorasMinutosSegundos(Date.now() - v.uptime) : 'Desconocido'}`).join('\n\n__________________________\n\n');
 const replyMessage = message.length === 0 ? `No hay Sub-Bots disponible por el momento, verifique mas tarde.` : message;
 const totalUsers = users.length;
-const responseMessage = `🐉 *LISTA DE SUBBOTS*\n\n☁️ PUEDES PEDIR PERMISO PARA QUE TE DEJEN UNIR EL BOT A TÚ GRUPO\n\n\`\`\` ❤️🐉SI TE QUIERES CONVERTIR EN UN SUBBOT AHORA DALE CLICK A UNOS DE LOS ENLACES DE LOS BOT ACTIVOS* \`\`\`\n\n🐉SUBBOT CONECTADO🐉: ${totalUsers || '0'}\n\n${replyMessage.trim()}`.trim();
+const responseMessage = `❤️ *LISTA DE SUBBOTS*\n\n☁️ PUEDES PEDIR PERMISO PARA QUE TE DEJEN UNIR EL BOT A TÚ GRUPO\n\n\`\`\` ❤️SI TE QUIERES CONVERTIR EN UN SUBBOT AHORA DALE CLICK A UNOS DE LOS ENLACES DE LOS BOT ACTIVOS* \`\`\`\n\n😊SUBBOT CONECTADO❤️: ${totalUsers || '0'}\n\n${replyMessage.trim()}`.trim();
 await _envio.sendMessage(m.chat, {text: responseMessage, mentions: _envio.parseMention(responseMessage)}, {quoted: m})
 break   
 }}
