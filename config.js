@@ -63,7 +63,13 @@ global.moneda = 'Yenes'
 global.welcom1 = 'Edita Con #setwelcome'
 global.welcom2 = 'Edita Con #setbye'
 global.banner = 'https://qu.ax/zxHoR.jpg'
-global.avatar = 'https://qu.ax/ryZnk.jpg'
+global.avatars = [
+  'https://qu.ax/XhBhO.jpg',
+  'https://qu.ax/wmgKA.jpg',
+  'https://qu.ax/kacDl.jpg'
+];
+
+global.avatar = global.avatars[Math.floor(Math.random() * global.avatars.length)];
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
