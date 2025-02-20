@@ -62,7 +62,14 @@ global.etiqueta = '𝐍𝐞𝐲𝐤𝐨𝐨𝐫💜'
 global.moneda = 'Yenes'
 global.welcom1 = 'Edita Con #setwelcome'
 global.welcom2 = 'Edita Con #setbye'
-global.banner = 'https://qu.ax/zxHoR.jpg'
+global.banners = [
+  'https://qu.ax/zxHoR.jpg',
+  'https://qu.ax/iKouo.jpeg',
+  'https://qu.ax/SQnJQ.jpg'
+]
+
+// Para seleccionar una imagen aleatoria
+global.banner = global.banners[Math.floor(Math.random() * global.banners.length)]
 global.avatars = [
   'https://qu.ax/XhBhO.jpg',
   'https://qu.ax/wmgKA.jpg',
