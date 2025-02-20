@@ -68,7 +68,7 @@ globalThis.banners = [
   'https://qu.ax/SQnJQ.jpg'
 ];
 
-// Para seleccionar una imagen aleatoria
+// Asignar una imagen aleatoria del array banners
 globalThis.banner = globalThis.banners[Math.floor(Math.random() * globalThis.banners.length)];
 
 globalThis.avatars = [
@@ -77,8 +77,8 @@ globalThis.avatars = [
   'https://qu.ax/kacDl.jpg'
 ];
 
+// Asignar una imagen aleatoria del array avatars
 globalThis.avatar = globalThis.avatars[Math.floor(Math.random() * globalThis.avatars.length)];
-
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
 global.catalogo = fs.readFileSync('./src/catalogo.jpg');
