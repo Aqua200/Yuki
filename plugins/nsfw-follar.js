@@ -2,7 +2,7 @@
 
 const fs = require('fs'); const path = require('path');
 
-let handler = async (m, { conn, usedPrefix }) => { if (!global.db.data.chats[m.chat].nsfw && m.isGroup) { return m.reply(🥵 El contenido *NSFW* está desactivado en este grupo.\n> Un administrador puede activarlo con el comando » *#nsfw*); }
+let handler = async (m, { conn, usedPrefix }) => { if (!global.db.data.chats[m.chat].nsfw && m.isGroup) { return m.reply("🥵 El contenido NSFW está desactivado en este grupo.\n> Un administrador puede activarlo con el comando » #nsfw"); }
 
 let who;
 if (m.mentionedJid.length > 0) {
@@ -15,7 +15,7 @@ if (m.mentionedJid.length > 0) {
 
 let name = await conn.getName(who);
 let name2 = await conn.getName(m.sender);
-m.react('🥵');
+m.react("🥵");
 
 let str;
 if (m.mentionedJid.length > 0) {
@@ -46,4 +46,3 @@ if (m.isGroup) {
 handler.help = ['follar @tag']; handler.tags = ['nsfw']; handler.command = ['follar']; handler.group = true;
 
 module.exports = handler;
-
